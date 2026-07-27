@@ -155,6 +155,7 @@ MonoBehaviour:
   mp: 10
   maxHealth: 10
   currentHealth: 0
+  isPartyMember: 1
 --- !u!212 &102857334
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -305,6 +306,7 @@ MonoBehaviour:
   mp: 10
   maxHealth: 10
   currentHealth: 0
+  isPartyMember: 1
 --- !u!212 &470851507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -407,6 +409,7 @@ MonoBehaviour:
   mp: 10
   maxHealth: 10
   currentHealth: 0
+  isPartyMember: 0
 --- !u!212 &904298097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -646,6 +649,7 @@ MonoBehaviour:
   mp: 10
   maxHealth: 10
   currentHealth: 0
+  isPartyMember: 0
 --- !u!212 &1209318863
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -748,6 +752,7 @@ MonoBehaviour:
   mp: 10
   maxHealth: 10
   currentHealth: 0
+  isPartyMember: 1
 --- !u!212 &1798723596
 SpriteRenderer:
   m_ObjectHideFlags: 0

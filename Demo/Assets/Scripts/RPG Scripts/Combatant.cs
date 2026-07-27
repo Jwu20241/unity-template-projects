@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Combatant : MonoBehaviour
@@ -14,6 +15,9 @@ public class Combatant : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+
+        if (isPartyMember) GetComponent<SpriteRenderer>().color = Color.green;
+        else GetComponent<SpriteRenderer>().color = Color.red;
     }
 
 }
