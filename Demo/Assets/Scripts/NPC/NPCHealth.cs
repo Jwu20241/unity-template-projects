@@ -17,6 +17,7 @@ public class NPCHealth : MonoBehaviour, IDamageable
     public void DealDamage(float amount)
     {
         _health -= amount;
+        StartCoroutine(FlashRed());
         if (_health <= 0) {HandleDeath();}
     }
 
@@ -28,8 +29,18 @@ public class NPCHealth : MonoBehaviour, IDamageable
     }
 
     //Destroys the object upon reaching zero hp
-    protected void HandleDeath()
+    void HandleDeath()
     {
         Destroy(this.gameObject);
+    }
+
+    //Creates a visual red flash
+    IEnumerator FlashRed()
+    {
+        SpriteRenderer sp = this.gameObject.GetComponent<SpriteRenderer>();
+        Color original = sp.color;
+        sp.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        sp.color = original;
     }
 }
