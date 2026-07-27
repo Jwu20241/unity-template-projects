@@ -18,10 +18,11 @@ public class Firing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(_projectile, transform.position, Quaternion.identity);
+            Instantiate(_projectile, transform.position + Vector3.up, Quaternion.identity);
         }
     }
 
+    //If the projectile hits a collider object, run logic
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log($"Projectile hit object {col.gameObject}");
