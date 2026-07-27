@@ -14,11 +14,11 @@ public class ScrollShooterMovement : TopDownMovement
     //Override the functionality of TopDownMovement to only allow horizontal movement
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             _rb2d.velocity = Vector2.left * speed;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             _rb2d.velocity = Vector2.right * speed;
         }

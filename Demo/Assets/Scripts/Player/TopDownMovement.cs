@@ -25,19 +25,19 @@ public class TopDownMovement : MonoBehaviour
     //Each frame, check for inputs corresponding to WASD and apply motion to the player
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             _rb2d.velocity = Vector2.left * speed;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             _rb2d.velocity = Vector2.right * speed;
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKey(KeyCode.W))
         {
             _rb2d.velocity = Vector2.up * speed;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             _rb2d.velocity = Vector2.down * speed;
         }
