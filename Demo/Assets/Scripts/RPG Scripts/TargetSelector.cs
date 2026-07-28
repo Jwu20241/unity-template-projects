@@ -7,14 +7,15 @@ public class TargetSelector : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private KeyCode cyclePrevKey = KeyCode.LeftArrow;
     [SerializeField] private KeyCode cycleNextKey = KeyCode.RightArrow;
-    [SerializeField] private bool logMouseMisses = true;
+    [SerializeField] private float clickFallbackRadius = 2f;
+    [SerializeField] private bool useColliders = true;
+    [SerializeField] private bool verbose = true;
 
     private bool selecting;
     private List<Combatant> candidates = new List<Combatant>();
     private Combatant hovered;
     private Combatant selected;
     private Combatant lastSelected;
-    private float nextMissLog;
 
     public bool IsSelecting => selecting;
     public Combatant Selected => selected;
@@ -24,12 +25,9 @@ public class TargetSelector : MonoBehaviour
         if (cam == null) cam = Camera.main;
 
         if (cam == null)
-            Debug.LogError("[TargetSelector] No camera. Tag your camera as MainCamera or assign it.", this);
+            Debug.LogError("[TargetSelector] No camera found. Tag one as MainCamera or assign it.", this);
         else if (!cam.orthographic)
-            Debug.LogError("[TargetSelector] Camera is Perspective. Set Projection to Orthographic for 2D.", cam);
-
-        if (targetLayer.value == 0)
-            Debug.LogError("[TargetSelector] Target Layer mask is empty. Set it to your Targetable layer.", this);
+            Debug.LogWarning("[TargetSelector] Camera is Perspective. Orthographic is expected for 2D.", cam);
     }
 
     public void Begin(List<Combatant> validTargets)
@@ -38,45 +36,27 @@ public class TargetSelector : MonoBehaviour
 
         foreach (Combatant c in validTargets)
         {
-            if (c == null || !c.IsAlive) continue;
-
-            Collider2D col = c.GetComponentInChildren<Collider2D>(true);
-            if (col == null)
-            {
-                Debug.LogError("[TargetSelector] " + c.name + " has no Collider2D on itself or any child. It cannot be clicked.", c);
-            }
-            else
-            {
-                if (!col.enabled)
-                    Debug.LogWarning("[TargetSelector] " + c.name + " has a disabled Collider2D.", c);
-
-                if ((targetLayer.value & (1 << col.gameObject.layer)) == 0)
-                    Debug.LogError("[TargetSelector] " + col.name + " (collider for " + c.name + ") is on layer '"
-                        + LayerMask.LayerToName(col.gameObject.layer)
-                        + "' which is not in Target Layer. It cannot be clicked.", col);
-            }
-
-            if (!c.HasOutline)
-                Debug.LogWarning("[TargetSelector] " + c.name + " has no outline object, so it will not highlight.", c);
-
-            candidates.Add(c);
+            if (c != null && c.IsAlive) candidates.Add(c);
         }
 
         selecting = candidates.Count > 0;
         hovered = null;
         selected = null;
 
-        Debug.Log("[TargetSelector] Begin with " + candidates.Count + " candidates. selecting=" + selecting);
-
-        if (selecting)
+        if (verbose)
         {
-            Combatant preferred = candidates[0];
-
-            if (lastSelected != null && lastSelected.IsAlive && candidates.Contains(lastSelected))
-                preferred = lastSelected;
-
-            Select(preferred);
+            string list = "";
+            for (int i = 0; i < candidates.Count; i++) list += "[" + (i + 1) + "] " + candidates[i].name + "  ";
+            Debug.Log("[TargetSelector] Targets: " + list + "Click, arrow keys, or number keys to choose.");
         }
+
+        if (!selecting) return;
+
+        Combatant preferred = candidates[0];
+        if (lastSelected != null && lastSelected.IsAlive && candidates.Contains(lastSelected))
+            preferred = lastSelected;
+
+        Select(preferred);
     }
 
     public void Cancel()
@@ -92,17 +72,16 @@ public class TargetSelector : MonoBehaviour
 
     private void Select(Combatant target)
     {
+        if (target == null || !candidates.Contains(target)) return;
         if (selected == target) return;
 
         if (selected != null) selected.SetSelected(false);
-        selected = target;
-        if (selected != null)
-        {
-            selected.SetSelected(true);
-            lastSelected = selected;
-        }
 
-        Debug.Log("[TargetSelector] Selected " + (selected != null ? selected.name : "nothing"));
+        selected = target;
+        selected.SetSelected(true);
+        lastSelected = selected;
+
+        if (verbose) Debug.Log("[TargetSelector] Selected " + selected.name);
     }
 
     private void Cycle(int direction)
@@ -125,39 +104,70 @@ public class TargetSelector : MonoBehaviour
         }
     }
 
+    private Combatant UnderMouse(Vector2 world)
+    {
+        if (!useColliders) return null;
+
+        Collider2D[] hits = Physics2D.OverlapPointAll(world, targetLayer);
+
+        foreach (Collider2D h in hits)
+        {
+            Combatant c = h.GetComponentInParent<Combatant>();
+            if (c != null && c.IsAlive && candidates.Contains(c)) return c;
+        }
+
+        return null;
+    }
+
+    private Combatant NearestTo(Vector2 world, float maxDistance)
+    {
+        Combatant best = null;
+        float bestDistance = maxDistance;
+
+        foreach (Combatant c in candidates)
+        {
+            if (c == null || !c.IsAlive) continue;
+
+            float d = Vector2.Distance(world, c.transform.position);
+            if (d < bestDistance)
+            {
+                bestDistance = d;
+                best = c;
+            }
+        }
+
+        return best;
+    }
+
     void Update()
     {
         if (!selecting || cam == null) return;
 
         Vector2 world = cam.ScreenToWorldPoint(Input.mousePosition);
-        Collider2D hit = Physics2D.OverlapPoint(world, targetLayer);
 
-        Combatant candidate = null;
-        if (hit != null)
-        {
-            Combatant found = hit.GetComponentInParent<Combatant>();
-            if (found != null && found.IsAlive && candidates.Contains(found)) candidate = found;
-        }
+        Combatant candidate = UnderMouse(world);
+        if (candidate == null) candidate = NearestTo(world, clickFallbackRadius);
 
         if (candidate != hovered)
         {
             if (hovered != null) hovered.SetHovered(false);
             hovered = candidate;
-            if (hovered != null)
-            {
-                hovered.SetHovered(true);
-                Debug.Log("[TargetSelector] Hovering " + hovered.name);
-            }
+            if (hovered != null) hovered.SetHovered(true);
         }
 
-        if (logMouseMisses && hit == null && Time.time >= nextMissLog)
+        if (Input.GetMouseButtonDown(0))
         {
-            nextMissLog = Time.time + 1f;
-            Debug.Log("[TargetSelector] Mouse world position " + world
-                + " hit nothing on the target layer. Check collider size, layer, and camera Z.");
+            Combatant picked = UnderMouse(world);
+            if (picked == null) picked = NearestTo(world, clickFallbackRadius);
+
+            if (picked != null) Select(picked);
+            else if (verbose) Debug.Log("[TargetSelector] Click at " + world + " matched no target.");
         }
 
-        if (hovered != null && Input.GetMouseButtonDown(0)) Select(hovered);
+        for (int i = 0; i < candidates.Count && i < 9; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) Select(candidates[i]);
+        }
 
         if (Input.GetKeyDown(cycleNextKey)) Cycle(1);
         if (Input.GetKeyDown(cyclePrevKey)) Cycle(-1);
