@@ -141,8 +141,21 @@ MonoBehaviour:
   strength: 15
   mp: 0
   maxHealth: 20
-  currentHealth: 0
+  turnPriority: 0
   isPartyMember: 1
+  selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
+  hoverTint: {r: 1, g: 0.7, b: 0.7, a: 1}
+  activeTurnTint: {r: 0.5, g: 0.9, b: 1, a: 1}
+  deadTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  activeScale: 1.18
+  bounceHeight: 0.14
+  bounceSpeed: 5
+  easeSpeed: 10
+  lungeDistance: 0.6
+  lungeOutTime: 0.1
+  lungeHoldTime: 0.06
+  lungeBackTime: 0.16
+  currentHealth: 0
 --- !u!212 &85170087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -216,8 +229,21 @@ MonoBehaviour:
   strength: 10
   mp: 0
   maxHealth: 10
-  currentHealth: 0
+  turnPriority: 0
   isPartyMember: 1
+  selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
+  hoverTint: {r: 1, g: 0.7, b: 0.7, a: 1}
+  activeTurnTint: {r: 0.5, g: 0.9, b: 1, a: 1}
+  deadTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  activeScale: 1.18
+  bounceHeight: 0.14
+  bounceSpeed: 5
+  easeSpeed: 10
+  lungeDistance: 0.6
+  lungeOutTime: 0.1
+  lungeHoldTime: 0.06
+  lungeBackTime: 0.16
+  currentHealth: 0
 --- !u!212 &87667145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -454,8 +480,21 @@ MonoBehaviour:
   strength: 10
   mp: 10
   maxHealth: 15
-  currentHealth: 0
+  turnPriority: 0
   isPartyMember: 1
+  selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
+  hoverTint: {r: 1, g: 0.7, b: 0.7, a: 1}
+  activeTurnTint: {r: 0.5, g: 0.9, b: 1, a: 1}
+  deadTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  activeScale: 1.18
+  bounceHeight: 0.14
+  bounceSpeed: 5
+  easeSpeed: 10
+  lungeDistance: 0.6
+  lungeOutTime: 0.1
+  lungeHoldTime: 0.06
+  lungeBackTime: 0.16
+  currentHealth: 0
 --- !u!212 &868656589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -674,7 +713,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 83dd2d9227418f74bbe59c0bb0bdfa52, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1262,8 +1301,21 @@ MonoBehaviour:
   strength: 10
   mp: 0
   maxHealth: 10
-  currentHealth: 0
+  turnPriority: 0
   isPartyMember: 0
+  selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
+  hoverTint: {r: 1, g: 0.7, b: 0.7, a: 1}
+  activeTurnTint: {r: 0.5, g: 0.9, b: 1, a: 1}
+  deadTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  activeScale: 1.18
+  bounceHeight: 0.14
+  bounceSpeed: 5
+  easeSpeed: 10
+  lungeDistance: 0.6
+  lungeOutTime: 0.1
+  lungeHoldTime: 0.06
+  lungeBackTime: 0.16
+  currentHealth: 0
 --- !u!212 &2133598307
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1337,8 +1389,21 @@ MonoBehaviour:
   strength: 15
   mp: 0
   maxHealth: 20
-  currentHealth: 0
+  turnPriority: 0
   isPartyMember: 0
+  selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
+  hoverTint: {r: 1, g: 0.7, b: 0.7, a: 1}
+  activeTurnTint: {r: 0.5, g: 0.9, b: 1, a: 1}
+  deadTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  activeScale: 1.18
+  bounceHeight: 0.14
+  bounceSpeed: 5
+  easeSpeed: 10
+  lungeDistance: 0.6
+  lungeOutTime: 0.1
+  lungeHoldTime: 0.06
+  lungeBackTime: 0.16
+  currentHealth: 0
 --- !u!212 &2136062846
 SpriteRenderer:
   m_ObjectHideFlags: 0
