@@ -208,6 +208,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &85170090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85170083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c9ab83625ce2042b4c3bf4e397d8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
+  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  width: 1.2
+  height: 0.18
+  offset: {x: 0, y: 0.25}
+  placeAboveSprite: 1
+  backgroundColor: {r: 0.1, g: 0.1, b: 0.1, a: 0.85}
+  partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
+  enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
+  delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  fillSpeed: 6
+  delayedSpeed: 1.5
+  delayBeforeCatchUp: 0.4
+  sortingOrderBoost: 200
+  hideWhenDead: 1
 --- !u!1 &87667141 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6311861856165175232, guid: 22278203e8d524358894260c10cb0a79, type: 3}
@@ -296,6 +323,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &87667148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87667141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c9ab83625ce2042b4c3bf4e397d8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
+  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  width: 1.2
+  height: 0.18
+  offset: {x: 0, y: 0.25}
+  placeAboveSprite: 1
+  backgroundColor: {r: 0.1, g: 0.1, b: 0.1, a: 0.85}
+  partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
+  enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
+  delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  fillSpeed: 6
+  delayedSpeed: 1.5
+  delayBeforeCatchUp: 0.4
+  sortingOrderBoost: 200
+  hideWhenDead: 1
 --- !u!1 &285013420
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +546,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6311861856165175232, guid: 22278203e8d524358894260c10cb0a79, type: 3}
       insertIndex: -1
       addedObject: {fileID: 87667145}
+    - targetCorrespondingSourceObject: {fileID: 6311861856165175232, guid: 22278203e8d524358894260c10cb0a79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 87667148}
   m_SourcePrefab: {fileID: 100100000, guid: 22278203e8d524358894260c10cb0a79, type: 3}
 --- !u!1 &868656585 stripped
 GameObject:
@@ -581,6 +638,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &868656592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868656585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c9ab83625ce2042b4c3bf4e397d8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
+  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  width: 1.2
+  height: 0.18
+  offset: {x: 0, y: 0.25}
+  placeAboveSprite: 1
+  backgroundColor: {r: 0.1, g: 0.1, b: 0.1, a: 0.85}
+  partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
+  enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
+  delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  fillSpeed: 6
+  delayedSpeed: 1.5
+  delayBeforeCatchUp: 0.4
+  sortingOrderBoost: 200
+  hideWhenDead: 1
 --- !u!1 &960383308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,6 +1359,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8717663361120014766, guid: 64359be8b124840d0bb4846426882691, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2133598308}
+    - targetCorrespondingSourceObject: {fileID: 8717663361120014766, guid: 64359be8b124840d0bb4846426882691, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2133598311}
   m_SourcePrefab: {fileID: 100100000, guid: 64359be8b124840d0bb4846426882691, type: 3}
 --- !u!1001 &1301130454
 PrefabInstance:
@@ -1386,6 +1473,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6194015696605001386, guid: a9823d640c8424348bf599518c19d05e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 868656589}
+    - targetCorrespondingSourceObject: {fileID: 6194015696605001386, guid: a9823d640c8424348bf599518c19d05e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 868656592}
   m_SourcePrefab: {fileID: 100100000, guid: a9823d640c8424348bf599518c19d05e, type: 3}
 --- !u!1001 &1709441625
 PrefabInstance:
@@ -1501,6 +1591,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5510382206488389914, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 85170087}
+    - targetCorrespondingSourceObject: {fileID: 5510382206488389914, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 85170090}
   m_SourcePrefab: {fileID: 100100000, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
 --- !u!1001 &2114448016
 PrefabInstance:
@@ -1619,6 +1712,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6990880486151972754, guid: 98beeb71a03164bbfb5f711620fdaf02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2136062847}
+    - targetCorrespondingSourceObject: {fileID: 6990880486151972754, guid: 98beeb71a03164bbfb5f711620fdaf02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2136062850}
   m_SourcePrefab: {fileID: 100100000, guid: 98beeb71a03164bbfb5f711620fdaf02, type: 3}
 --- !u!1 &2133598303 stripped
 GameObject:
@@ -1754,6 +1850,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2133598311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133598303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c9ab83625ce2042b4c3bf4e397d8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
+  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  width: 1.2
+  height: 0.18
+  offset: {x: 0, y: 0.25}
+  placeAboveSprite: 1
+  backgroundColor: {r: 0.1, g: 0.1, b: 0.1, a: 0.85}
+  partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
+  enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
+  delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  fillSpeed: 6
+  delayedSpeed: 1.5
+  delayBeforeCatchUp: 0.4
+  sortingOrderBoost: 200
+  hideWhenDead: 1
 --- !u!1 &2136062842 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6990880486151972754, guid: 98beeb71a03164bbfb5f711620fdaf02, type: 3}
@@ -1888,6 +2011,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2136062850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136062842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c9ab83625ce2042b4c3bf4e397d8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
+  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  width: 1.2
+  height: 0.18
+  offset: {x: 0, y: 0.25}
+  placeAboveSprite: 1
+  backgroundColor: {r: 0.1, g: 0.1, b: 0.1, a: 0.85}
+  partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
+  enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
+  delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  fillSpeed: 6
+  delayedSpeed: 1.5
+  delayBeforeCatchUp: 0.4
+  sortingOrderBoost: 200
+  hideWhenDead: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
