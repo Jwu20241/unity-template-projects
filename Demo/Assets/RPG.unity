@@ -347,7 +347,9 @@ MonoBehaviour:
   cam: {fileID: 0}
   cyclePrevKey: 276
   cycleNextKey: 275
-  logMouseMisses: 1
+  clickFallbackRadius: 2
+  useColliders: 1
+  verbose: 1
 --- !u!114 &285013424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +668,7 @@ Transform:
   m_GameObject: {fileID: 960383308}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.029407764, z: -0, w: 0.9995675}
-  m_LocalPosition: {x: 1.62, y: 1.04, z: -9.58}
+  m_LocalPosition: {x: 0.86, y: 0.92, z: -9.62}
   m_LocalScale: {x: 1, y: 1.1094236, z: 1.1094236}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1638,7 +1640,7 @@ MonoBehaviour:
   speed: 10
   strength: 10
   mp: 0
-  maxHealth: 40
+  maxHealth: 25
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
