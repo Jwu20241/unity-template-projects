@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
-  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  fillSprite: {fileID: -3954253196147072082, guid: aa6c5bb317530b8479604ae7cbd46e85, type: 3}
   width: 1.2
   height: 0.18
   offset: {x: 0, y: 0.25}
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
-  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  fillSprite: {fileID: -3954253196147072082, guid: aa6c5bb317530b8479604ae7cbd46e85, type: 3}
   width: 1.2
   height: 0.18
   offset: {x: 0, y: 0.25}
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
-  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  fillSprite: {fileID: -3954253196147072082, guid: aa6c5bb317530b8479604ae7cbd46e85, type: 3}
   width: 1.2
   height: 0.18
   offset: {x: 0, y: 0.25}
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   speed: 10
   strength: 10
   mp: 0
-  maxHealth: 25
+  maxHealth: 20
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -1863,7 +1863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
-  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  fillSprite: {fileID: -3954253196147072082, guid: aa6c5bb317530b8479604ae7cbd46e85, type: 3}
   width: 1.2
   height: 0.18
   offset: {x: 0, y: 0.25}
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
-  fillSprite: {fileID: -3014748121592047622, guid: 4bfacbb5fc137ce4a98024113a2d9d1e, type: 3}
+  fillSprite: {fileID: -3954253196147072082, guid: aa6c5bb317530b8479604ae7cbd46e85, type: 3}
   width: 1.2
   height: 0.18
   offset: {x: 0, y: 0.25}
