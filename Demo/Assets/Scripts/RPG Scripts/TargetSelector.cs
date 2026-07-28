@@ -13,6 +13,7 @@ public class TargetSelector : MonoBehaviour
     private List<Combatant> candidates = new List<Combatant>();
     private Combatant hovered;
     private Combatant selected;
+    private Combatant lastSelected;
     private float nextMissLog;
 
     public bool IsSelecting => selecting;
@@ -67,7 +68,15 @@ public class TargetSelector : MonoBehaviour
 
         Debug.Log("[TargetSelector] Begin with " + candidates.Count + " candidates. selecting=" + selecting);
 
-        if (selecting) Select(candidates[0]);
+        if (selecting)
+        {
+            Combatant preferred = candidates[0];
+
+            if (lastSelected != null && lastSelected.IsAlive && candidates.Contains(lastSelected))
+                preferred = lastSelected;
+
+            Select(preferred);
+        }
     }
 
     public void Cancel()
@@ -87,7 +96,11 @@ public class TargetSelector : MonoBehaviour
 
         if (selected != null) selected.SetSelected(false);
         selected = target;
-        if (selected != null) selected.SetSelected(true);
+        if (selected != null)
+        {
+            selected.SetSelected(true);
+            lastSelected = selected;
+        }
 
         Debug.Log("[TargetSelector] Selected " + (selected != null ? selected.name : "nothing"));
     }
