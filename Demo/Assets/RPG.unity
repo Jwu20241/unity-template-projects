@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  strength: 20
+  strength: 15
   mp: 0
-  maxHealth: 20
+  maxHealth: 120
   turnPriority: 0
   isPartyMember: 1
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -230,6 +230,12 @@ MonoBehaviour:
   partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
   enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
   delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  showLabel: 1
+  labelFont: {fileID: 0}
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
+  showMaxHealth: 1
+  labelSize: 0.055
+  labelOffset: {x: 0, y: 0.16}
   fillSpeed: 6
   delayedSpeed: 1.5
   delayBeforeCatchUp: 0.4
@@ -253,9 +259,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  strength: 10
+  strength: 20
   mp: 0
-  maxHealth: 10
+  maxHealth: 100
   turnPriority: 0
   isPartyMember: 1
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -345,6 +351,12 @@ MonoBehaviour:
   partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
   enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
   delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  showLabel: 1
+  labelFont: {fileID: 0}
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
+  showMaxHealth: 1
+  labelSize: 0.055
+  labelOffset: {x: 0, y: 0.16}
   fillSpeed: 6
   delayedSpeed: 1.5
   delayBeforeCatchUp: 0.4
@@ -568,9 +580,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  strength: 10
+  strength: 25
   mp: 10
-  maxHealth: 15
+  maxHealth: 85
   turnPriority: 0
   isPartyMember: 1
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -660,6 +672,12 @@ MonoBehaviour:
   partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
   enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
   delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  showLabel: 1
+  labelFont: {fileID: 0}
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
+  showMaxHealth: 1
+  labelSize: 0.055
+  labelOffset: {x: 0, y: 0.16}
   fillSpeed: 6
   delayedSpeed: 1.5
   delayBeforeCatchUp: 0.4
@@ -1734,9 +1752,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  strength: 10
+  strength: 20
   mp: 0
-  maxHealth: 20
+  maxHealth: 90
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -1872,6 +1890,12 @@ MonoBehaviour:
   partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
   enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
   delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  showLabel: 1
+  labelFont: {fileID: 0}
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
+  showMaxHealth: 1
+  labelSize: 0.055
+  labelOffset: {x: 0, y: 0.16}
   fillSpeed: 6
   delayedSpeed: 1.5
   delayBeforeCatchUp: 0.4
@@ -1897,7 +1921,7 @@ MonoBehaviour:
   speed: 15
   strength: 15
   mp: 0
-  maxHealth: 20
+  maxHealth: 100
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -2033,6 +2057,12 @@ MonoBehaviour:
   partyFillColor: {r: 0.35, g: 0.95, b: 0.4, a: 1}
   enemyFillColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
   delayedColor: {r: 1, g: 0.9, b: 0.35, a: 1}
+  showLabel: 1
+  labelFont: {fileID: 0}
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
+  showMaxHealth: 1
+  labelSize: 0.055
+  labelOffset: {x: 0, y: 0.16}
   fillSpeed: 6
   delayedSpeed: 1.5
   delayBeforeCatchUp: 0.4
