@@ -228,5 +228,16 @@ public class Combatant : MonoBehaviour
         {
             col.enabled = false;
         }
+
+        StartCoroutine(ExampleCoroutine());
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+        foreach (SpriteRenderer ren in GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            ren.enabled = false;
+        } 
     }
 }

@@ -10446,6 +10446,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_Data
+      value: 
+      objectReference: {fileID: 5288188997765318534, guid: ca1fe683d8872314481b6dbcd87cb1d1, type: 3}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_Tiles.Array.data[26].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6357433866391532866, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
       propertyPath: m_Name
       value: 2D Dungeon PixelArt Tileset Palette
@@ -28017,6 +28037,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_Data
+      value: 
+      objectReference: {fileID: 5288188997765318534, guid: ca1fe683d8872314481b6dbcd87cb1d1, type: 3}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
       propertyPath: m_TileAssetArray.Array.data[5].m_RefCount
       value: 4
       objectReference: {fileID: 0}
@@ -28117,6 +28145,14 @@ PrefabInstance:
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[5].m_RefCount
       value: 4
       objectReference: {fileID: 0}
@@ -28202,7 +28238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
       propertyPath: m_Tiles.Array.data[29].second.m_TileSpriteIndex
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 890313257503861056, guid: 8ba3375a981b2974abd4a003396a8168, type: 3}
       propertyPath: m_Tiles.Array.data[30].second.m_TileSpriteIndex
