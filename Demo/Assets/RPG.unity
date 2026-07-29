@@ -1487,7 +1487,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5510382206488389914, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_Name
-      value: Knight
+      value: Warrior
       objectReference: {fileID: 0}
     - target: {fileID: 5510382206488389914, guid: a77f2796fd776459c9b84d0b63c90e3a, type: 3}
       propertyPath: m_IsActive
