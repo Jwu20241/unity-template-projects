@@ -17,7 +17,15 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Color backgroundColor = new Color(0.1f, 0.1f, 0.1f, 0.85f);
     [SerializeField] private Color partyFillColor = new Color(0.35f, 0.95f, 0.4f, 1f);
     [SerializeField] private Color enemyFillColor = new Color(0.95f, 0.3f, 0.3f, 1f);
-    [SerializeField] private Color delayedColor = new Color(1f, 0.9f, 0.35f, 1f);
+    [SerializeField] private Color delayedColor = new Color(1f, 1f, 1f, 1f);
+
+    [Header("Label")]
+    [SerializeField] private bool showLabel = true;
+    [SerializeField] private Font labelFont;
+    [SerializeField] private Color labelColor = Color.white;
+    [SerializeField] private bool showMaxHealth = true;
+    [SerializeField] private float labelSize = 0.055f;
+    [SerializeField] private Vector2 labelOffset = new Vector2(0f, 0.16f);
 
     [Header("Animation")]
     [SerializeField] private float fillSpeed = 6f;
@@ -35,6 +43,9 @@ public class HealthBar : MonoBehaviour
     private SpriteRenderer backgroundRenderer;
     private SpriteRenderer fillRenderer;
     private SpriteRenderer delayedRenderer;
+
+    private TextMesh label;
+    private int lastShownValue = -1;
 
     private float shown = 1f;
     private float delayed = 1f;
@@ -93,6 +104,68 @@ public class HealthBar : MonoBehaviour
         backgroundRenderer = MakeBar(backgroundSprite, backgroundColor, layerId, order + sortingOrderBoost, out Transform ignored, false);
         delayedRenderer = MakeBar(fillSprite, delayedColor, layerId, order + sortingOrderBoost + 1, out delayedPivot, true);
         fillRenderer = MakeBar(fillSprite, combatant.isPartyMember ? partyFillColor : enemyFillColor, layerId, order + sortingOrderBoost + 2, out fillPivot, true);
+
+        if (showLabel) BuildLabel(layerId, order + sortingOrderBoost + 3);
+    }
+
+    private void BuildLabel(int layerId, int order)
+    {
+        GameObject labelObject = new GameObject("Label");
+        labelObject.transform.SetParent(root, false);
+        labelObject.transform.localPosition = new Vector3(labelOffset.x, labelOffset.y, 0f);
+
+        label = labelObject.AddComponent<TextMesh>();
+        label.anchor = TextAnchor.MiddleCenter;
+        label.alignment = TextAlignment.Center;
+        label.color = labelColor;
+        label.fontSize = 64;
+        label.characterSize = labelSize;
+
+        MeshRenderer meshRenderer = labelObject.GetComponent<MeshRenderer>();
+
+        Font chosen = labelFont;
+        if (chosen == null) chosen = LoadBuiltinFont();
+
+        if (chosen != null)
+        {
+            label.font = chosen;
+            meshRenderer.sharedMaterial = chosen.material;
+        }
+        else
+        {
+            Debug.LogWarning("[HealthBar] " + name + " has no font. Assign one in the Label Font field.", this);
+        }
+
+        meshRenderer.sortingLayerID = layerId;
+        meshRenderer.sortingOrder = order;
+    }
+
+    private Font LoadBuiltinFont()
+    {
+        string[] names = { "LegacyRuntime.ttf", "Arial.ttf" };
+
+        foreach (string fontName in names)
+        {
+            try
+            {
+                Font found = Resources.GetBuiltinResource<Font>(fontName);
+                if (found != null) return found;
+            }
+            catch { }
+        }
+
+        return null;
+    }
+
+    private void RefreshLabel()
+    {
+        if (label == null) return;
+
+        int value = combatant.CurrentHealth;
+        if (value == lastShownValue) return;
+
+        lastShownValue = value;
+        label.text = showMaxHealth ? value + "/" + combatant.MaxHealth : value.ToString();
     }
 
     private SpriteRenderer MakeBar(Sprite sprite, Color color, int layerId, int order, out Transform pivot, bool anchorLeft)
@@ -130,6 +203,7 @@ public class HealthBar : MonoBehaviour
         shown = ratio;
         delayed = ratio;
         ApplyScales();
+        RefreshLabel();
         FollowTarget();
     }
 
@@ -166,6 +240,7 @@ public class HealthBar : MonoBehaviour
         else delayed = shown;
 
         ApplyScales();
+        RefreshLabel();
 
         if (hideWhenDead && !combatant.IsAlive && shown <= 0.001f && delayed <= 0.001f)
             root.gameObject.SetActive(false);
