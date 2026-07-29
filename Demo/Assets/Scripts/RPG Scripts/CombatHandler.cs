@@ -41,9 +41,18 @@ public class CombatHandler : MonoBehaviour
     [SerializeField] private int currentIndex = -1;
     [SerializeField] private Combatant activeCombatant;
 
+    [SerializeField] private GameObject Victory; 
+    [SerializeField] private GameObject Defeat; 
+    [SerializeField] private AudioClip VictorySound;
+    [SerializeField] private AudioClip GameOver;
+    [SerializeField] private AudioSource Dungeon;
+
+
     void Start()
     {
         Debug.Log("[CombatHandler] Start called.");
+        Dungeon = GetComponent<AudioSource>();
+
 
         if (targetSelector == null)
         {
@@ -216,6 +225,10 @@ public class CombatHandler : MonoBehaviour
             state = BattleState.Victory;
             targetSelector.Cancel();
             Debug.Log("Victory");
+            Victory.SetActive(true);
+            Victory.GetComponent<AudioSource>().PlayOneShot(VictorySound, 1);
+            Dungeon.mute = !Dungeon.mute;
+            StartCoroutine(ExampleCoroutine());
             return true;
         }
 
@@ -224,9 +237,28 @@ public class CombatHandler : MonoBehaviour
             state = BattleState.Defeat;
             targetSelector.Cancel();
             Debug.Log("Defeat");
+            Defeat.SetActive(true);
+            Defeat.GetComponent<AudioSource>().PlayOneShot(GameOver, 1);
+            Debug.Log(Dungeon == null);
+            Dungeon.mute = !Dungeon.mute;
+            StartCoroutine(ExampleCoroutine2());
             return true;
         }
 
         return false;
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
+        yield return new WaitForSeconds(5);
+        Victory.SetActive(false); 
+    }
+
+    IEnumerator ExampleCoroutine2()
+    {
+        foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
+        yield return new WaitForSeconds(5);
+        Defeat.SetActive(false);
     }
 }
