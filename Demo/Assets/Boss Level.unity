@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrostBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 7233308530154401741, guid: 3aabd435546394bd292bfe681b4eff9d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
