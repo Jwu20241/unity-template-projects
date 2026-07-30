@@ -223,6 +223,7 @@ public class CombatHandler : MonoBehaviour
             state = BattleState.Victory;
             targetSelector.Cancel();
             Debug.Log("Victory");
+            HideAllHealthBars();
             Victory.SetActive(true);
             Victory.GetComponent<AudioSource>().PlayOneShot(VictorySound, 1);
             StartCoroutine(ExampleCoroutine());
@@ -234,6 +235,7 @@ public class CombatHandler : MonoBehaviour
             state = BattleState.Defeat;
             targetSelector.Cancel();
             Debug.Log("Defeat");
+            HideAllHealthBars();
             Defeat.SetActive(true);
             Defeat.GetComponent<AudioSource>().PlayOneShot(GameOver, 1);
             StartCoroutine(ExampleCoroutine2());
@@ -241,6 +243,17 @@ public class CombatHandler : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void HideAllHealthBars()
+    {
+        foreach (HealthBar bar in FindObjectsByType<HealthBar>(FindObjectsSortMode.None))
+        {
+            if (bar != null)
+            {
+                bar.SetVisible(false);
+            }
+        }
     }
 
     IEnumerator ExampleCoroutine()

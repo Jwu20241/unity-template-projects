@@ -71,7 +71,9 @@ public class HealthBar : MonoBehaviour
     private float MeasureTop()
     {
         SpriteRenderer[] found = GetComponentsInChildren<SpriteRenderer>(true);
-        if (found.Length == 0) return 0.5f;
+        if (found.Length == 0) {
+            return 0.5f;
+        }
 
         bool started = false;
         Bounds total = new Bounds(transform.position, Vector3.zero);
@@ -105,7 +107,10 @@ public class HealthBar : MonoBehaviour
         delayedRenderer = MakeBar(fillSprite, delayedColor, layerId, order + sortingOrderBoost + 1, out delayedPivot, true);
         fillRenderer = MakeBar(fillSprite, combatant.isPartyMember ? partyFillColor : enemyFillColor, layerId, order + sortingOrderBoost + 2, out fillPivot, true);
 
-        if (showLabel) BuildLabel(layerId, order + sortingOrderBoost + 3);
+        if (showLabel) 
+        {
+            BuildLabel(layerId, order + sortingOrderBoost + 3);
+        }
     }
 
     private void BuildLabel(int layerId, int order)
@@ -205,6 +210,14 @@ public class HealthBar : MonoBehaviour
         ApplyScales();
         RefreshLabel();
         FollowTarget();
+    }
+
+    public void SetVisible(bool visible)
+    {
+        if (root != null)
+        {
+            root.gameObject.SetActive(visible);
+        }
     }
 
     private float Ratio()
