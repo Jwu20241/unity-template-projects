@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum TurnOrderMode
 {
@@ -260,7 +261,8 @@ public class CombatHandler : MonoBehaviour
     {
         foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
         yield return new WaitForSeconds(5);
-        Victory.SetActive(false); 
+        Victory.SetActive(false);
+        SceneManager.LoadScene("Boss Level");
     }
 
     IEnumerator ExampleCoroutine2()
