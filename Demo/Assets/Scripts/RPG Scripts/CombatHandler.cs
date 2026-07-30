@@ -41,6 +41,7 @@ public class CombatHandler : MonoBehaviour
     [SerializeField] private List<Combatant> turnOrder = new List<Combatant>();
     [SerializeField] private int currentIndex = -1;
     [SerializeField] private Combatant activeCombatant;
+    private bool isTransitioning;
 
     [SerializeField] private GameObject Victory; 
     [SerializeField] private GameObject Defeat; 
@@ -272,7 +273,7 @@ public class CombatHandler : MonoBehaviour
 
     private void SyncLevelProgressToCurrentScene()
     {
-        int sceneIndex = GetSceneIndex(SceneManager.GetActiveScene().name);
+        int sceneIndex = GetCurrentSceneIndex();
         if (sceneIndex >= 0)
         {
             PlayerPrefs.SetInt(LevelProgressKey, sceneIndex + 1);
@@ -284,7 +285,7 @@ public class CombatHandler : MonoBehaviour
     {
         for (int i = 0; i < levelScenes.Length; i++)
         {
-            if (levelScenes[i] == sceneName)
+            if (string.Equals(levelScenes[i], sceneName, System.StringComparison.OrdinalIgnoreCase))
             {
                 return i;
             }
@@ -293,16 +294,26 @@ public class CombatHandler : MonoBehaviour
         return -1;
     }
 
-    private string GetNextSceneName()
+    private int GetCurrentSceneIndex()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        int currentIndex = GetSceneIndex(currentSceneName);
-
-        if (currentIndex < 0)
+        int sceneIndex = GetSceneIndex(SceneManager.GetActiveScene().name);
+        if (sceneIndex >= 0)
         {
-            return levelScenes[0];
+            return sceneIndex;
         }
 
+        int savedIndex = PlayerPrefs.GetInt(LevelProgressKey, 0);
+        if (savedIndex > 0)
+        {
+            return Mathf.Clamp(savedIndex - 1, 0, levelScenes.Length - 1);
+        }
+
+        return 0;
+    }
+
+    private string GetNextSceneName()
+    {
+        int currentIndex = GetCurrentSceneIndex();
         int nextIndex = currentIndex + 1;
         if (nextIndex >= levelScenes.Length)
         {
@@ -314,14 +325,7 @@ public class CombatHandler : MonoBehaviour
 
     private void AdvanceLevelProgress()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        int currentIndex = GetSceneIndex(currentSceneName);
-
-        if (currentIndex < 0)
-        {
-            currentIndex = 0;
-        }
-
+        int currentIndex = GetCurrentSceneIndex();
         int nextIndex = currentIndex + 1;
         if (nextIndex >= levelScenes.Length)
         {
@@ -334,6 +338,13 @@ public class CombatHandler : MonoBehaviour
 
     IEnumerator ExampleCoroutine()
     {
+        if (isTransitioning)
+        {
+            yield break;
+        }
+
+        isTransitioning = true;
+
         foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
         yield return new WaitForSeconds(5);
         Victory.SetActive(false);
