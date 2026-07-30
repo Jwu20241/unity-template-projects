@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      YOU ESCAPED THE DUNGEON_0: 7528251768632538601
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
