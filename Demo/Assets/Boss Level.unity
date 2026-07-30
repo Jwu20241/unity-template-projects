@@ -4281,7 +4281,7 @@ MonoBehaviour:
   speed: 50
   strength: 50
   mp: 10
-  maxHealth: 400
+  maxHealth: 420
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
