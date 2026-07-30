@@ -65,6 +65,14 @@ public class CombatHandler : MonoBehaviour
     void Update()
     {
         if (state != BattleState.ChoosingTarget) return;
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            activeCombatant.SetDefending(true);
+            targetSelector.Cancel();
+            state = BattleState.Resolving;
+            NextTurn(); // Skip to next turn
+            return;
+        }
         if (!Input.GetKeyDown(confirmKey)) return;
 
         Combatant target = targetSelector.Selected;
@@ -142,8 +150,10 @@ public class CombatHandler : MonoBehaviour
 
     private void NextTurn()
     {
-        if (activeCombatant != null) activeCombatant.SetActiveTurn(false);
-
+        if (activeCombatant != null) 
+        {
+            activeCombatant.SetActiveTurn(false);
+        }
         if (CheckEndConditions()) return;
 
         do
@@ -262,7 +272,7 @@ public class CombatHandler : MonoBehaviour
         foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
         yield return new WaitForSeconds(5);
         Victory.SetActive(false);
-        SceneManager.LoadScene("Boss Level");
+        SceneManager.LoadScene("Second Level");
     }
 
     IEnumerator ExampleCoroutine2()

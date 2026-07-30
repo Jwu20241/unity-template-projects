@@ -377,6 +377,7 @@ MonoBehaviour:
   lungeOutTime: 0.1
   lungeHoldTime: 0.06
   lungeBackTime: 0.16
+  defendTint: {r: 1, g: 1, b: 0.3, a: 1}
   currentHealth: 0
 --- !u!1 &395097983 stripped
 GameObject:
@@ -498,6 +499,7 @@ MonoBehaviour:
   lungeOutTime: 0.1
   lungeHoldTime: 0.06
   lungeBackTime: 0.16
+  defendTint: {r: 1, g: 1, b: 0.3, a: 1}
   currentHealth: 0
 --- !u!1 &729642098
 GameObject:
@@ -1168,6 +1170,7 @@ MonoBehaviour:
   lungeOutTime: 0.1
   lungeHoldTime: 0.06
   lungeBackTime: 0.16
+  defendTint: {r: 1, g: 1, b: 0.3, a: 1}
   currentHealth: 0
 --- !u!1 &1239365176
 GameObject:
@@ -4250,8 +4253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c9ab83625ce2042b4c3bf4e397d8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSprite: {fileID: 0}
-  fillSprite: {fileID: 0}
+  backgroundSprite: {fileID: 1102378827788902996, guid: 6d85622855d947f498cda93c3ce38e39, type: 3}
+  fillSprite: {fileID: -3954253196147072082, guid: aa6c5bb317530b8479604ae7cbd46e85, type: 3}
   width: 1.2
   height: 0.18
   offset: {x: 0, y: 0.25}
@@ -4283,10 +4286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aca75b8509f5df4e8cbdf157fd5e5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  strength: 10
+  speed: 40
+  strength: 40
   mp: 10
-  maxHealth: 200
+  maxHealth: 300
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -4301,6 +4304,7 @@ MonoBehaviour:
   lungeOutTime: 0.1
   lungeHoldTime: 0.06
   lungeBackTime: 0.16
+  defendTint: {r: 1, g: 1, b: 0.3, a: 1}
   currentHealth: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

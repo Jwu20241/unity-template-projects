@@ -16,6 +16,7 @@ public class Combatant : MonoBehaviour
     [SerializeField] private Color hoverTint = new Color(1f, 0.7f, 0.7f, 1f);
     [SerializeField] private Color activeTurnTint = new Color(0.5f, 0.9f, 1f, 1f);
     [SerializeField] private Color deadTint = new Color(0.4f, 0.4f, 0.4f, 1f);
+    [SerializeField] private Color defendTint = new Color(1f, 0.95f, 0.2f, 1f);
 
     [Header("Active Turn Motion")]
     [SerializeField] private float activeScale = 1.18f;
@@ -43,6 +44,7 @@ public class Combatant : MonoBehaviour
     private bool hovered;
     private bool selected;
     private bool activeTurn;
+    private bool isDefending;
 
     private Vector3 baseScale;
     private Vector3 basePosition;
@@ -89,6 +91,12 @@ public class Combatant : MonoBehaviour
             StopCoroutine(motionRoutine);
         } 
         motionRoutine = StartCoroutine(on ? BounceLoop() : ReturnToRest());
+    }
+
+    public void SetDefending(bool on)
+    {
+        isDefending = on;
+        RefreshTint();
     }
 
     public IEnumerator PlayAttack(Combatant target)
@@ -166,6 +174,7 @@ public class Combatant : MonoBehaviour
         hovered = false;
         selected = false;
         activeTurn = false;
+        isDefending = false;
         RefreshTint();
     }
 
@@ -179,7 +188,8 @@ public class Combatant : MonoBehaviour
             return;
         }
 
-        if (selected) Apply(selectedTint, true);
+        if (isDefending) Apply(defendTint, true);
+        else if (selected) Apply(selectedTint, true);
         else if (hovered) Apply(hoverTint, true);
         else if (activeTurn) Apply(activeTurnTint, true);
         else Apply(Color.white, false);
@@ -200,15 +210,22 @@ public class Combatant : MonoBehaviour
             {
                 renderers[i].color = baseColors[i];
             }
-        }
+        } 
     }
 
     public void TakeDamage(int amount)
     {
         if (!IsAlive) return;
 
+        if (isDefending)
+        {
+            amount = Mathf.Max(0, amount / 2);
+            isDefending = false;
+        }
+
         currentHealth = Mathf.Max(0, currentHealth - amount);
         if (!IsAlive) Die();
+        else RefreshTint();
     }
 
     public void Heal(int amount)
