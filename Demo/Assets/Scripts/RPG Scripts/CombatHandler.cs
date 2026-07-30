@@ -47,11 +47,14 @@ public class CombatHandler : MonoBehaviour
     [SerializeField] private AudioClip VictorySound;
     [SerializeField] private AudioClip GameOver;
 
+    private const string LevelProgressKey = "CurrentLevelIndex";
+    private readonly string[] levelScenes = { "First Level", "Second Level", "Third Level", "Boss Level" };
 
     void Start()
     {
         Debug.Log("[CombatHandler] Start called.");
 
+        SyncLevelProgressToCurrentScene();
 
         if (targetSelector == null)
         {
@@ -267,12 +270,75 @@ public class CombatHandler : MonoBehaviour
         }
     }
 
+    private void SyncLevelProgressToCurrentScene()
+    {
+        int sceneIndex = GetSceneIndex(SceneManager.GetActiveScene().name);
+        if (sceneIndex >= 0)
+        {
+            PlayerPrefs.SetInt(LevelProgressKey, sceneIndex + 1);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private int GetSceneIndex(string sceneName)
+    {
+        for (int i = 0; i < levelScenes.Length; i++)
+        {
+            if (levelScenes[i] == sceneName)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private string GetNextSceneName()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int currentIndex = GetSceneIndex(currentSceneName);
+
+        if (currentIndex < 0)
+        {
+            return levelScenes[0];
+        }
+
+        int nextIndex = currentIndex + 1;
+        if (nextIndex >= levelScenes.Length)
+        {
+            nextIndex = 0;
+        }
+
+        return levelScenes[nextIndex];
+    }
+
+    private void AdvanceLevelProgress()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int currentIndex = GetSceneIndex(currentSceneName);
+
+        if (currentIndex < 0)
+        {
+            currentIndex = 0;
+        }
+
+        int nextIndex = currentIndex + 1;
+        if (nextIndex >= levelScenes.Length)
+        {
+            nextIndex = 0;
+        }
+
+        PlayerPrefs.SetInt(LevelProgressKey, nextIndex + 1);
+        PlayerPrefs.Save();
+    }
+
     IEnumerator ExampleCoroutine()
     {
         foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
         yield return new WaitForSeconds(5);
         Victory.SetActive(false);
-        SceneManager.LoadScene("Second Level");
+        AdvanceLevelProgress();
+        SceneManager.LoadScene(GetNextSceneName());
     }
 
     IEnumerator ExampleCoroutine2()
