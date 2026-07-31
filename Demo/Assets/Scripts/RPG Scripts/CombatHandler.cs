@@ -357,5 +357,6 @@ public class CombatHandler : MonoBehaviour
         foreach (Combatant c in turnOrder) c.gameObject.SetActive(false);
         yield return new WaitForSeconds(5);
         Defeat.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
