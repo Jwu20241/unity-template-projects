@@ -37379,7 +37379,7 @@ MonoBehaviour:
   speed: 9
   strength: 25
   mp: 10
-  maxHealth: 140
+  maxHealth: 145
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
