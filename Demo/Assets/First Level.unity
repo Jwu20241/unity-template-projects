@@ -37563,7 +37563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  strength: 30
+  strength: 25
   mp: 0
   maxHealth: 100
   turnPriority: 0
