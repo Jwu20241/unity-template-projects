@@ -37397,7 +37397,7 @@ MonoBehaviour:
   speed: 10
   strength: 25
   mp: 0
-  maxHealth: 120
+  maxHealth: 130
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
@@ -37563,9 +37563,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  strength: 25
+  strength: 30
   mp: 0
-  maxHealth: 100
+  maxHealth: 130
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}

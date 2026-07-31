@@ -4279,9 +4279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  strength: 50
+  strength: 52
   mp: 10
-  maxHealth: 420
+  maxHealth: 400
   turnPriority: 0
   isPartyMember: 0
   selectedTint: {r: 1, g: 0.3, b: 0.3, a: 1}
