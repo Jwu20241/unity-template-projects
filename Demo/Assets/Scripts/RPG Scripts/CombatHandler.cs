@@ -45,6 +45,8 @@ public class CombatHandler : MonoBehaviour
 
     [SerializeField] private GameObject Victory; 
     [SerializeField] private GameObject Defeat; 
+    [SerializeField] private GameObject Hit;
+    [SerializeField] private AudioClip HitSound;
     [SerializeField] private AudioClip VictorySound;
     [SerializeField] private AudioClip GameOver;
 
@@ -191,6 +193,8 @@ public class CombatHandler : MonoBehaviour
     {
         target.SetSelected(true);
         yield return attacker.PlayAttack(target);
+        Hit.SetActive(true);
+        Hit.GetComponent<AudioSource>().PlayOneShot(HitSound, 10);
         target.TakeDamage(attacker.strength);
 
         Debug.Log(attacker.name + " hits " + target.name + " for " + attacker.strength
@@ -216,6 +220,8 @@ public class CombatHandler : MonoBehaviour
             Combatant target = party[Random.Range(0, party.Count)];
             target.SetSelected(true);
             yield return activeCombatant.PlayAttack(target);
+            Hit.SetActive(true);
+            Hit.GetComponent<AudioSource>().PlayOneShot(HitSound, 10);
             target.TakeDamage(activeCombatant.strength);
 
             Debug.Log(activeCombatant.name + " hits " + target.name + " for " + activeCombatant.strength
