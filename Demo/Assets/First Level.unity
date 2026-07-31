@@ -26657,6 +26657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474293239}
   - component: {fileID: 1474293238}
+  - component: {fileID: 1474293240}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -26731,6 +26732,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474293240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474293237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc5bf36c594b01499e16600b45d42cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPanel: {fileID: 1474293237}
+  onlyOnFirstLevel: 1
+  firstLevelSceneName: First Level
 --- !u!1 &1488758227
 GameObject:
   m_ObjectHideFlags: 0
